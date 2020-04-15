@@ -24,7 +24,6 @@ namespace Store
             var result = "Rental Record for " + Name + "\n";
             foreach (var rental in rentals)
             {
-
                 //show figures for this rental
                 result += "\t" + rental.Movie.Title + "\t" + rental.GetPrice() + "\n";
             }
@@ -81,9 +80,9 @@ namespace Store
             Customer _mMinnieMouse;
 
             // Create movies
-            _mCinderella = new Movie("Cinderella", PriceCodes.Childrens);
-            _mStarWars = new Movie("Star Wars", PriceCodes.Regular);
-            _mGladiator = new Movie("Gladiator", PriceCodes.NewRelease);
+            _mCinderella = MovieFactory.GetMovieByName("Cinderella");
+            _mStarWars = MovieFactory.GetMovieByName("Star Wars");
+            _mGladiator = MovieFactory.GetMovieByName("Gladiator");
 
             // Create rentals
             _mRental1 = new Rental(_mCinderella, 5);
