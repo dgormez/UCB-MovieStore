@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="Interfaces\IPriceable.cs" />
     <Compile Include="Movies\ChildrensMovie.cs" />
     <Compile Include="Movies\Movie.cs" />
     <Compile Include="Movies\MovieFactory.cs" />

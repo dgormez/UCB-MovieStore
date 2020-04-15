@@ -1,10 +1,12 @@
 ﻿
+using Store.Interfaces;
+
 namespace Store.Movies
 {
-    public abstract class Movie
+    public abstract class Movie : IPriceable
     {
-        public PriceCodes PriceCode { get; set; }
-        public string Title { get; set; }
+        protected PriceCodes PriceCode;
+        protected string Title;
 
         public Movie (string title)
         {
@@ -12,5 +14,15 @@ namespace Store.Movies
         }
 
         public abstract double GetPrice(int daysRented);
+
+        public string GetName()
+        {
+            return Title;
+        }
+
+        public PriceCodes GetPricingCode()
+        {
+            return PriceCode;
+        }
     }    
 }

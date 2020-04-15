@@ -1,14 +1,15 @@
-﻿using Store.Movies;
+﻿using Store.Interfaces;
+using Store.Movies;
 using System;
 
 namespace Store
 {
     public class Rental
     {
-        public Movie Movie { get; set; }
+        public IPriceable Movie { get; set; }
         public int DaysRented { get; set; }
 
-        public Rental(Movie movie, int daysRented)
+        public Rental(IPriceable movie, int daysRented)
         {
             Movie = movie;
             DaysRented = daysRented;
@@ -19,9 +20,9 @@ namespace Store
             return Movie.GetPrice(DaysRented);
         }
 
-        public string GetMovieTitle()
+        public string GetPriceableItemName()
         {
-            return Movie.Title;
+            return Movie.GetName();
         }
 
         internal int GetFrequentRenterPoints()
@@ -39,7 +40,7 @@ namespace Store
 
         public string GetFormattedDescription()
         {
-            return "\t" + GetMovieTitle() + "\t" + GetPrice() + "\n";
+            return "\t" + GetPriceableItemName() + "\t" + GetPrice() + "\n";
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Store;
+using Store.Interfaces;
 using Store.Movies;
 
 namespace StoreTest
@@ -27,10 +28,9 @@ namespace StoreTest
         /* Fields */
 
         // Movies
-        private Movie _mCinderella;
-
-        private Movie _mStarWars;
-        private Movie _mGladiator;
+        private IPriceable _mCinderella;
+        private IPriceable _mStarWars;
+        private IPriceable _mGladiator;
 
         // Rentals
         private Rental _mRental1;
@@ -68,12 +68,12 @@ namespace StoreTest
         public void TestMovie()
         {
             //Assert
-            Assert.AreEqual("Cinderella", _mCinderella.Title);
-            Assert.AreEqual("Star Wars", _mStarWars.Title);
-            Assert.AreEqual("Gladiator", _mGladiator.Title);
-            Assert.AreEqual(PriceCodes.Childrens, _mCinderella.PriceCode);
-            Assert.AreEqual(PriceCodes.Regular, _mStarWars.PriceCode);
-            Assert.AreEqual(PriceCodes.NewRelease, _mGladiator.PriceCode);
+            Assert.AreEqual("Cinderella", _mCinderella.GetName());
+            Assert.AreEqual("Star Wars", _mStarWars.GetName());
+            Assert.AreEqual("Gladiator", _mGladiator.GetName());
+            Assert.AreEqual(PriceCodes.Childrens, _mCinderella.GetPricingCode());
+            Assert.AreEqual(PriceCodes.Regular, _mStarWars.GetPricingCode());
+            Assert.AreEqual(PriceCodes.NewRelease, _mGladiator.GetPricingCode());
         }
 
         [Test]

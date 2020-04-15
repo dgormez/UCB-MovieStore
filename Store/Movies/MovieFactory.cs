@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Store.Movies
 
     public static class MovieFactory
     {
-        public static Movie GetMovieByName(string name)
+        public static IPriceable GetMovieByName(string name)
         {
             switch (name)
             {

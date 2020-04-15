@@ -25,12 +25,12 @@ namespace StoreTest
             var StarWarsRegularMovie = MovieFactory.GetMovieByName(MovieTitles.StarWars);
             var GladiatorNewReleaseMovie = MovieFactory.GetMovieByName(MovieTitles.Gladiator);
 
-            Assert.AreEqual(CinderellaChildrenMovie.Title, MovieTitles.Cinderella);
-            Assert.AreEqual(StarWarsRegularMovie.Title, MovieTitles.StarWars);
-            Assert.AreEqual(GladiatorNewReleaseMovie.Title, MovieTitles.Gladiator);
-            Assert.AreEqual(CinderellaChildrenMovie.PriceCode, PriceCodes.Childrens);
-            Assert.AreEqual(StarWarsRegularMovie.PriceCode, PriceCodes.Regular);
-            Assert.AreEqual(GladiatorNewReleaseMovie.PriceCode, PriceCodes.NewRelease);
+            Assert.AreEqual(CinderellaChildrenMovie.GetName(), MovieTitles.Cinderella);
+            Assert.AreEqual(StarWarsRegularMovie.GetName(), MovieTitles.StarWars);
+            Assert.AreEqual(GladiatorNewReleaseMovie.GetName(), MovieTitles.Gladiator);
+            Assert.AreEqual(CinderellaChildrenMovie.GetPricingCode(), PriceCodes.Childrens);
+            Assert.AreEqual(StarWarsRegularMovie.GetPricingCode(), PriceCodes.Regular);
+            Assert.AreEqual(GladiatorNewReleaseMovie.GetPricingCode(), PriceCodes.NewRelease);
 
         }
 
