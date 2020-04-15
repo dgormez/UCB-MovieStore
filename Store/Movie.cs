@@ -18,4 +18,9 @@
         public PriceCodes PriceCode { get; set; }
         public string Title { get; set; }
     }
+
+    public abstract class MovieWrapper
+    {
+
+    }
 }
