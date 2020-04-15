@@ -20,29 +20,43 @@ namespace Store
 
         public string Statement()
         {
-            double totalAmount = 0;
             var rentals = _rentals;
-            var frequentRenterPoints = 0;
             var result = "Rental Record for " + Name + "\n";
             foreach (var rental in rentals)
             {
-                frequentRenterPoints += rental.GetFrequentRenterPoints();
 
                 //show figures for this rental
                 result += "\t" + rental.Movie.Title + "\t" + rental.GetPrice() + "\n";
-
-                totalAmount += rental.GetPrice();
-
             }
 
             //add footer lines
-            result += "Amount owed is " + totalAmount +
-                      "\n";
-            result += "You earned " + frequentRenterPoints
-                      +
-                      " frequent renter points";
+            result += "Amount owed is " + GetTotalPrice() + "\n";
+            result += "You earned " + GetTotalFrequentRenterPoints() + " frequent renter points";
 
             return result;
+        }
+
+        private double GetTotalPrice()
+        {
+            double totalAmount = 0;
+
+            foreach (var rental in _rentals)
+            {
+                totalAmount += rental.GetPrice();
+            }
+            return totalAmount;
+        }
+
+        private double GetTotalFrequentRenterPoints()
+        {
+            double frequentRenterPoints = 0;
+
+            foreach (var rental in _rentals)
+            {
+                frequentRenterPoints += rental.GetFrequentRenterPoints();
+            }
+
+            return frequentRenterPoints;
         }
     }
 

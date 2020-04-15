@@ -1,0 +1,6 @@
+﻿Rental Record for Mickey Mouse
+	Cinderella	4,5
+	Star Wars	6,5
+	Gladiator	15
+Amount owed is 26
+You earned 4 frequent renter points
