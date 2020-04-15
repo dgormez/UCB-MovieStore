@@ -23,8 +23,6 @@ namespace StoreTest
 
             // Create customers
             _mMickeyMouse = new Customer("Mickey Mouse");
-            _mDonaldDuck = new Customer("Donald Duck");
-            _mMinnieMouse = new Customer("Minnie Mouse");
         }
         /* Fields */
 
@@ -41,8 +39,6 @@ namespace StoreTest
 
         // Customers
         private Customer _mMickeyMouse;
-        private Customer _mDonaldDuck;
-        private Customer _mMinnieMouse;
 
         [Test]
         public void TestCustomer()
@@ -66,6 +62,7 @@ namespace StoreTest
             Assert.AreEqual("Gladiator", results[8]);
             Assert.AreEqual(15, Convert.ToDouble(results[9]));
         }
+
 
         [Test]
         public void TestMovie()
