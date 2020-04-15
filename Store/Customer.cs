@@ -26,25 +26,7 @@ namespace Store
             var result = "Rental Record for " + Name + "\n";
             foreach (var rental in rentals)
             {
-                double thisAmount = 0;
-
-                //determine amounts for each line
-                switch (rental.Movie.PriceCode)
-                {
-                    case PriceCodes.Regular:
-                        thisAmount += 2;
-                        if (rental.DaysRented > 2)
-                            thisAmount += (rental.DaysRented - 2) * 1.5;
-                        break;
-                    case PriceCodes.NewRelease:
-                        thisAmount += rental.DaysRented * 3;
-                        break;
-                    case PriceCodes.Childrens:
-                        thisAmount += 1.5;
-                        if (rental.DaysRented > 3)
-                            thisAmount += (rental.DaysRented - 3) * 1.5;
-                        break;
-                }
+                double thisAmount = GetAmount(rental);
 
                 // add frequent renter points
                 frequentRenterPoints++;
@@ -70,7 +52,30 @@ namespace Store
             return result;
         }
 
+        private static double GetAmount(Rental rental)
+        {
+            double result = 0;
 
+            //determine amounts for each line
+            switch (rental.Movie.PriceCode)
+            {
+                case PriceCodes.Regular:
+                    result += 2;
+                    if (rental.DaysRented > 2)
+                        result += (rental.DaysRented - 2) * 1.5;
+                    break;
+                case PriceCodes.NewRelease:
+                    result += rental.DaysRented * 3;
+                    break;
+                case PriceCodes.Childrens:
+                    result += 1.5;
+                    if (rental.DaysRented > 3)
+                        result += (rental.DaysRented - 3) * 1.5;
+                    break;
+            }
+
+            return result;
+        }
     }
 
     public class Program
