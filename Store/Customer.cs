@@ -21,25 +21,18 @@ namespace Store
         public string Statement()
         {
             double totalAmount = 0;
-            var frequentRenterPoints = 0;
             var rentals = _rentals;
+            var frequentRenterPoints = 0;
             var result = "Rental Record for " + Name + "\n";
             foreach (var rental in rentals)
             {
-                double amountForCurrentRental = rental.GetAmount();
-
-                // add frequent renter points
-                frequentRenterPoints++;
-
-                // add bonus for a two day new release rental
-                if (rental.Movie.PriceCode == PriceCodes.NewRelease
-                    &&
-                    rental.DaysRented > 1) frequentRenterPoints++;
+                frequentRenterPoints += rental.GetFrequentRenterPoints();
 
                 //show figures for this rental
-                result += "\t" + rental.Movie.Title + "\t" +
-                          amountForCurrentRental + "\n";
-                totalAmount += amountForCurrentRental;
+                result += "\t" + rental.Movie.Title + "\t" + rental.GetPrice() + "\n";
+
+                totalAmount += rental.GetPrice();
+
             }
 
             //add footer lines
