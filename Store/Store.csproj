@@ -82,6 +82,7 @@
     <Compile Include="Movies\Movie.cs" />
     <Compile Include="Movies\MovieFactory.cs" />
     <Compile Include="Movies\NewReleaseMovie.cs" />
+    <Compile Include="Movies\PriceCodes.cs" />
     <Compile Include="Movies\RegularMovie.cs" />
     <Compile Include="MovieTitles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

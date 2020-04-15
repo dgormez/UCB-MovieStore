@@ -1,23 +1,11 @@
-﻿namespace Store
+﻿
+namespace Store.Movies
 {
-    public enum PriceCodes
-    {
-        Regular,
-        NewRelease,
-        Childrens
-    }
-
     public abstract class Movie
     {
         public Movie (string title)
         {
             Title = title;
-        }
-
-        public Movie(string title, PriceCodes priceCode)
-        {
-            Title = title;
-            PriceCode = priceCode;
         }
 
         public abstract double GetPrice(int daysRented);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Movies;
+using System;
 
 namespace Store
 {
@@ -29,9 +30,8 @@ namespace Store
             int frequentRenterPoints = 1;
 
             // add bonus for a two day new release rental
-            if (Movie.PriceCode == PriceCodes.NewRelease
-                &&
-                DaysRented > 1)
+            if (Movie is NewReleaseMovie
+                && DaysRented > 1)
                 frequentRenterPoints++;
 
             return frequentRenterPoints;
