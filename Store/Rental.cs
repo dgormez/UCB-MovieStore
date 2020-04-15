@@ -18,6 +18,11 @@ namespace Store
             return Movie.GetPrice(DaysRented);
         }
 
+        public string GetMovieTitle()
+        {
+            return Movie.Title;
+        }
+
         internal int GetFrequentRenterPoints()
         {
             // add frequent renter points

@@ -78,8 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
-    <Compile Include="Movie.cs" />
-    <Compile Include="MovieFactory.cs" />
+    <Compile Include="Movies\ChildrensMovie.cs" />
+    <Compile Include="Movies\Movie.cs" />
+    <Compile Include="Movies\MovieFactory.cs" />
+    <Compile Include="Movies\NewReleaseMovie.cs" />
+    <Compile Include="Movies\RegularMovie.cs" />
     <Compile Include="MovieTitles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rental.cs" />

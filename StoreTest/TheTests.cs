@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Store;
+using Store.Movies;
 
 namespace StoreTest
 {

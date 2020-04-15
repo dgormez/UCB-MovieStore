@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Movies;
+using System;
 using System.Collections.Generic;
 
 namespace Store
@@ -25,7 +26,7 @@ namespace Store
             foreach (var rental in rentals)
             {
                 //show figures for this rental
-                result += "\t" + rental.Movie.Title + "\t" + rental.GetPrice() + "\n";
+                result += "\t" + rental.GetMovieTitle() + "\t" + rental.GetPrice() + "\n";
             }
 
             //add footer lines
