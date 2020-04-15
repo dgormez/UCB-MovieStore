@@ -14,19 +14,17 @@ namespace Store
             Name = name;
         }
 
-        public void AddRental(Rental arg)
+        public void AddRental(Rental rental)
         {
-            _rentals.Add(arg);
+            _rentals.Add(rental);
         }
 
         public string Statement()
         {
-            var rentals = _rentals;
             var result = "Rental Record for " + Name + "\n";
-            foreach (var rental in rentals)
+            foreach (var rental in _rentals)
             {
-                //show figures for this rental
-                result += "\t" + rental.GetMovieTitle() + "\t" + rental.GetPrice() + "\n";
+                result += rental.GetFormattedDescription();
             }
 
             //add footer lines
@@ -57,57 +55,6 @@ namespace Store
             }
 
             return frequentRenterPoints;
-        }
-    }
-
-    public class Program
-    {
-
-        public static void Main(string[] args)
-        {
-            Movie _mCinderella;
-
-            Movie _mStarWars;
-            Movie _mGladiator;
-
-            // Rentals
-            Rental _mRental1;
-            Rental _mRental2;
-            Rental _mRental3;
-
-            // Customers
-            Customer _mMickeyMouse;
-            Customer _mDonaldDuck;
-            Customer _mMinnieMouse;
-
-            // Create movies
-            _mCinderella = MovieFactory.GetMovieByName("Cinderella");
-            _mStarWars = MovieFactory.GetMovieByName("Star Wars");
-            _mGladiator = MovieFactory.GetMovieByName("Gladiator");
-
-            // Create rentals
-            _mRental1 = new Rental(_mCinderella, 5);
-            _mRental2 = new Rental(_mStarWars, 5);
-            _mRental3 = new Rental(_mGladiator, 5);
-
-            // Create customers
-            _mMickeyMouse = new Customer("Mickey Mouse");
-            _mDonaldDuck = new Customer("Donald Duck");
-            _mMinnieMouse = new Customer("Minnie Mouse");
-
-            //Arrange  
-            _mMickeyMouse.AddRental(_mRental1);
-            _mMickeyMouse.AddRental(_mRental2);
-            _mMickeyMouse.AddRental(_mRental3);
-
-            //Act
-            var theResult = _mMickeyMouse.Statement();
-
-            //Assert
-            var delimiters = "\n\t".ToCharArray();
-            var results = theResult.Split(delimiters);
-            Console.WriteLine(theResult);
-            Console.ReadLine();
         }
     }
 }

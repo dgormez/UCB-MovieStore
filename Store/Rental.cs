@@ -5,14 +5,14 @@ namespace Store
 {
     public class Rental
     {
+        public Movie Movie { get; set; }
+        public int DaysRented { get; set; }
+
         public Rental(Movie movie, int daysRented)
         {
             Movie = movie;
             DaysRented = daysRented;
         }
-
-        public Movie Movie { get; set; }
-        public int DaysRented { get; set; }
 
         public double GetPrice()
         {
@@ -35,6 +35,11 @@ namespace Store
                 frequentRenterPoints++;
 
             return frequentRenterPoints;
+        }
+
+        public string GetFormattedDescription()
+        {
+            return "\t" + GetMovieTitle() + "\t" + GetPrice() + "\n";
         }
     }
 }
