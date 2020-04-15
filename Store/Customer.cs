@@ -26,7 +26,7 @@ namespace Store
             var result = "Rental Record for " + Name + "\n";
             foreach (var rental in rentals)
             {
-                double thisAmount = GetAmount(rental);
+                double amountForCurrentRental = rental.GetAmount();
 
                 // add frequent renter points
                 frequentRenterPoints++;
@@ -38,8 +38,8 @@ namespace Store
 
                 //show figures for this rental
                 result += "\t" + rental.Movie.Title + "\t" +
-                          thisAmount + "\n";
-                totalAmount += thisAmount;
+                          amountForCurrentRental + "\n";
+                totalAmount += amountForCurrentRental;
             }
 
             //add footer lines
@@ -48,31 +48,6 @@ namespace Store
             result += "You earned " + frequentRenterPoints
                       +
                       " frequent renter points";
-
-            return result;
-        }
-
-        private static double GetAmount(Rental rental)
-        {
-            double result = 0;
-
-            //determine amounts for each line
-            switch (rental.Movie.PriceCode)
-            {
-                case PriceCodes.Regular:
-                    result += 2;
-                    if (rental.DaysRented > 2)
-                        result += (rental.DaysRented - 2) * 1.5;
-                    break;
-                case PriceCodes.NewRelease:
-                    result += rental.DaysRented * 3;
-                    break;
-                case PriceCodes.Childrens:
-                    result += 1.5;
-                    if (rental.DaysRented > 3)
-                        result += (rental.DaysRented - 3) * 1.5;
-                    break;
-            }
 
             return result;
         }
